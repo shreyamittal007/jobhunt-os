@@ -1,12 +1,12 @@
 # JobHunt OS
 
-> An AI-native job hunt operating system for senior PMs. Built with Claude/Opus agents, LinkedIn MCP, and Python automation. Designed to eventually become a public B2C SaaS product for job seekers.
+> An AI-native job hunt operating system for ambitious professionals. Built with Claude/Opus agents, LinkedIn MCP, and Python automation. Designed to eventually become a public B2C SaaS product for job seekers.
 
 ---
 
 ## The problem
 
-A senior PM's job search is a full-time product problem: 10+ active leads at different stages, tailored resumes per role, personalised outreach to hiring managers and recruiters, interview prep across multiple companies, behavioral story libraries, follow-up queues — all happening in parallel. There is no good tool for this. Most people use a spreadsheet and hope.
+A serious job search is a full-time operational problem: 10+ active leads at different stages, tailored resumes per role, personalised outreach to hiring managers and recruiters, interview prep across multiple companies, behavioral story libraries, follow-up queues — all happening in parallel. There is no good tool for this. Most people use a spreadsheet and hope.
 
 JobHunt OS is the tool I built for myself. It is now going public.
 
@@ -88,7 +88,7 @@ Full architecture doc (current system + future FE/BE product design): [`ARCHITEC
 
 **Current:** Single-user, local, CLI-driven. Actively used in a real job search.
 
-**Next:** Open-sourcing the framework. Building a public web product (Next.js FE + FastAPI BE) for other senior PMs.
+**Next:** Open-sourcing the framework. Building a public web product (Next.js FE + FastAPI BE) for anyone running a serious job search.
 
 **Roadmap phases:**
 1. Core — auth, resume tailoring, pipeline tracker, outreach drafts
@@ -100,7 +100,7 @@ Full architecture doc (current system + future FE/BE product design): [`ARCHITEC
 
 ## Interest list
 
-If you're a senior PM who wants early access when this goes public → [join the waitlist](#) *(link coming soon)*
+If you're actively job hunting and want early access when this goes public → [join the waitlist](#) *(link coming soon)*
 
 ---
 
