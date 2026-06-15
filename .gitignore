@@ -1,0 +1,27 @@
+# Personal job hunt data — never commit these
+companies/
+answers/
+briefs/
+raw/
+outreach/
+tracking/
+data/
+wiki/applications.md
+wiki/simpl-metrics.md
+wiki/log.md
+
+# Generated files
+*.pdf
+outreach/REVIEW-*.md
+outreach/FOLLOWUPS-*.md
+
+# System
+.DS_Store
+*.pyc
+__pycache__/
+.env
+*.log
+
+# Credentials
+*sa.json
+*service-account*.json
