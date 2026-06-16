@@ -225,7 +225,7 @@
 
   <nav>
     <span class="nav-brand">JobHunt OS</span>
-    <a href="#waitlist" class="nav-cta">Get early access</a>
+    <a href="#waitlist" class="nav-cta">Join the waitlist</a>
   </nav>
 
   <!-- HERO -->
@@ -233,9 +233,6 @@
     <div class="hero-badge">Now in private beta</div>
     <h1>Your job search,<br>run like a <em>product</em></h1>
     <p>An AI-native operating system for anyone running a serious job search. Tailored resumes, automated outreach, interview prep — all in one agentic pipeline.</p>
-    <div class="hero-actions">
-      <a href="#waitlist" class="btn-primary">Join the waitlist</a>
-    </div>
   </section>
 
   <!-- FEATURES -->
@@ -325,6 +322,12 @@
     Built by <a href="https://www.linkedin.com/in/shreya-mittal-65404b4b/" target="_blank">Shreya Mittal</a> &nbsp;·&nbsp;
     <a href="mailto:mittal.shreya91@gmail.com">Contact</a>
   </footer>
+
+  <script>
+    if (window.location.hash) {
+      window.addEventListener('load', () => window.scrollTo(0, 0));
+    }
+  </script>
 
   <script>
     const form = document.getElementById('waitlist-form');
