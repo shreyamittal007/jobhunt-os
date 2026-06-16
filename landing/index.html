@@ -170,11 +170,13 @@
     /* WAITLIST */
     .waitlist { background: var(--black); border-radius: 12px; padding: 56px 40px; text-align: center; }
     .waitlist h2 { color: var(--white); font-size: 28px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
-    .waitlist p { color: var(--grey-400); font-size: 16px; margin-bottom: 32px; }
-    .waitlist-form { display: flex; gap: 12px; max-width: 440px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+    .waitlist p { color: var(--grey-400); font-size: 16px; margin-bottom: 8px; }
+    .waitlist-perks { list-style: none; margin: 0 auto 32px; max-width: 340px; }
+    .waitlist-perks li { color: var(--grey-400); font-size: 15px; padding: 4px 0; }
+    .waitlist-perks li::before { content: "→ "; color: #60a5fa; }
+    .waitlist-form { display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 0 auto; }
     .waitlist-form input {
-      flex: 1;
-      min-width: 200px;
+      width: 100%;
       padding: 12px 16px;
       border-radius: var(--radius);
       border: none;
@@ -185,12 +187,11 @@
       background: var(--accent);
       color: var(--white);
       border: none;
-      padding: 12px 24px;
+      padding: 13px 24px;
       border-radius: var(--radius);
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
-      white-space: nowrap;
     }
     .waitlist-form button:hover { background: #1e40af; }
     .waitlist-note { color: var(--grey-400); font-size: 13px; margin-top: 16px; }
@@ -313,11 +314,16 @@
   <!-- WAITLIST -->
   <section id="waitlist" style="padding-top: 0;">
     <div class="waitlist">
-      <h2>Get early access</h2>
-      <p>Running a serious job search? Join the waitlist. First 50 get free access to the web product when it launches.</p>
-      <form class="waitlist-form" onsubmit="handleWaitlist(event)">
-        <input type="email" placeholder="your@email.com" required id="waitlist-email" />
-        <button type="submit">Join waitlist</button>
+      <h2>Join the waitlist</h2>
+      <p>First 50 members get:</p>
+      <ul class="waitlist-perks">
+        <li>CLI access today — start using it now</li>
+        <li>Free early access to the web product at launch</li>
+      </ul>
+      <form class="waitlist-form" id="waitlist-form">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <button type="submit">Get early access</button>
       </form>
       <p class="waitlist-note">No spam. One email when we launch.</p>
     </div>
@@ -330,15 +336,25 @@
   </footer>
 
   <script>
-    function handleWaitlist(e) {
+    const form = document.getElementById('waitlist-form');
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = document.getElementById('waitlist-email').value;
-      // Replace this URL with your actual Typeform or Google Form endpoint
-      const formUrl = `https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse?entry.YOUR_FIELD_ID=${encodeURIComponent(email)}&submit=Submit`;
-      fetch(formUrl, { method: 'POST', mode: 'no-cors' })
-        .catch(() => {});
-      e.target.innerHTML = '<p style="color:#86efac;font-size:15px;font-weight:600;">You\'re on the list. We\'ll be in touch.</p>';
-    }
+      const data = new FormData(form);
+      try {
+        const res = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.innerHTML = '<p style="color:#86efac;font-size:16px;font-weight:600;margin-top:8px;">You\'re on the list. We\'ll be in touch.</p>';
+        } else {
+          form.innerHTML = '<p style="color:#f87171;font-size:15px;">Something went wrong — email us at <a href="mailto:mittal.shreya91@gmail.com" style="color:#f87171;">mittal.shreya91@gmail.com</a></p>';
+        }
+      } catch {
+        form.innerHTML = '<p style="color:#f87171;font-size:15px;">Something went wrong — email us at <a href="mailto:mittal.shreya91@gmail.com" style="color:#f87171;">mittal.shreya91@gmail.com</a></p>';
+      }
+    });
   </script>
 
 </body>
